@@ -1,0 +1,6 @@
+.user-avatar .img-icon {
+  margin-top: -2px;
+  object-fit: cover;
+  width:20px;
+  height:20px;
+}

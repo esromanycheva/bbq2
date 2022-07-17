@@ -10,6 +10,12 @@ module Bbq2
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
+    config.active_storage.variant_processor = :mini_magick
+    config.i18n.default_locale = :ru
+
+    # Don't generate system test files.
+    config.generators.system_tests = nil
+    config.active_record.belongs_to_required_by_default = false
 
     # Configuration for the application, engines, and railties goes here.
     #
