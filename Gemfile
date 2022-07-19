@@ -51,12 +51,14 @@ gem "font-awesome-rails"
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
-gem "devise", github: "heartcombo/devise", ref: "f8d1ea90bc3"
 gem "letter_opener", group: :development
 gem 'devise-i18n'
 gem "russian"
 gem 'aws-sdk-s3'
 gem 'image_processing', '~> 1.2'
+
+gem "devise", github: "ghiculescu/devise", branch: "error-code-422" # https://github.com/heartcombo/devise/pull/5340 not yet merged
+gem "responders", github: "heartcombo/responders" # https://github.com/heartcombo/responders/pull/223 not yet released
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

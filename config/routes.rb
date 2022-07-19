@@ -2,7 +2,13 @@ Rails.application.routes.draw do
   resources :photos
   resources :subscriptions
   resources :comments
+
   devise_for :users
+  devise_scope :user do
+    # Redirests signing out users back to sign-in
+    get "users", to: "devise/sessions#new"
+  end
+
   resources :users
   root "events#index"
 

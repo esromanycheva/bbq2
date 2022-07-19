@@ -10,6 +10,9 @@ ru:
     log_in: 'Войти'
     sign_up: 'Зарегистрироваться'
     forgot: 'Забыли пароль'
+    send_me_password: 'Пришлите мне инструкции по сбросу пароля'
+    change_password: 'Изменение пароля'
+    change_my_password: 'Изменить пароль'
 
   activerecord:
     models:
