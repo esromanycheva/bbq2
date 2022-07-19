@@ -1,5 +1,5 @@
 <div class="event-photo buffer-both">
-  <%- if photo&.photo %>
+  <%- if photo&.photo_image %>
     <%= link_to image_tag(photo.photo_image.variant(:thumb)), photo.photo_image %>
   <% end %>  
   Добавил <%= render partial: 'users/user', object: photo.user %>
