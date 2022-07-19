@@ -42,8 +42,8 @@ class PhotosController < ApplicationController
   end
 
   def check_photo
-    if photo_params[:photo].nil?
-      redirect_to @event, alert: 'выберите фотографию'
+    if photo_params[:photo_image].nil?
+      redirect_to @event, alert: 'Выберите фотографию'
     end
   end
 end
