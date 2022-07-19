@@ -1,13 +1,12 @@
-<%= form_for [@event, photo], html: { multipart: true } do |f| %>
+<%= form_for [@event, photo], html: { multipart: true }, data: { turbo: false } do |f| %>
   <%= render partial: 'partials/form_errors', locals: {model: photo} %>
 
-  <div class="form-group">
-    <%= f.label :photo_image %>
-    <%= f.file_field :photo_image %>
+  <div class="mb-3">
+    <%= f.label :photo_image, class: "form-label" %>
+    <%= f.file_field :photo_image, class: "form-control"%>
   </div>
 
-  <div class="actions">
-    <%= f.submit 'Загрузить', class: 'btn btn-primary' %>
+  <div>
+    <%= f.submit('Загрузить', class: 'btn btn-primary') %>
   </div>
 <% end %>
-

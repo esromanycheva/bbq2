@@ -14,6 +14,10 @@ ru:
     change_password: 'Изменение пароля'
     change_my_password: 'Изменить пароль'
 
+  photos:
+    photo:
+      destroy_confirm: 'Вы действительно хотите удалить фотографию?'
+
   activerecord:
     models:
       user: 'Пользователь'

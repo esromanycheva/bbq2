@@ -1,6 +1,6 @@
 class PhotosController < ApplicationController
   before_action :set_event, only: [:create, :destroy]
-
+  before_action :check_photo, only: [:create]
   before_action :set_photo, only: [:destroy]
 
   def create
@@ -39,5 +39,11 @@ class PhotosController < ApplicationController
 
   def photo_params
     params.fetch(:photo, {}).permit(:photo_image)
+  end
+
+  def check_photo
+    if photo_params[:photo].nil?
+      redirect_to @event, alert: 'выберите фотографию'
+    end
   end
 end

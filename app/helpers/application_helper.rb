@@ -18,7 +18,7 @@ module ApplicationHelper
   def event_photo(event)
     photos = event.photos.persisted
 
-    if photos.any?
+    if photos.any? && photos.pluck(:photo).compact.present?
       rails_blob_path(photos.sample.photo_image.variant(:thumb), only_path: true)
     else
       asset_path('event.jpg')

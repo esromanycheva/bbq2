@@ -1,4 +1,14 @@
 <div class="event-photo buffer-both">
-  <%= link_to image_tag(photo.photo_image.variant(:thumb)), photo.photo_image %>
+  <%- if photo&.photo %>
+    <%= link_to image_tag(photo.photo_image.variant(:thumb)), photo.photo_image %>
+  <% end %>  
   Добавил <%= render partial: 'users/user', object: photo.user %>
+  <%- if(current_user_can_edit?(photo)) %>
+    <%= button_to '✖',
+          photo_path(id: photo.id, event_id: (photo.event.id)),
+          form: { data: { turbo_method: :delete, turbo_confirm: t('photos.photo.destroy_confirm') } },
+          method: :delete,
+          class: 'bg-transparent border-0',
+          form_class: 'd-inline delete' %>
+  <% end %>
 </div>
