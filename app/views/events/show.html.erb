@@ -59,14 +59,16 @@
           </p>
         </div>
       </div>
-      <div class="event-subscription-form">
-        <h4><%= t('.i_am_ready') %></h4>
-        <div>
-          <%- if show_subscription_button? %>
-            <%= render partial: 'subscriptions/form', locals: { subscription: @new_subscription || @event.subscriptions.build } %>
-          <% end %>
+
+      <% unless event_owner?(@event) %>
+        <div class="event-subscription-form">
+          <h4><%= t('.i_am_ready') %></h4>
+          <div>
+            <%= render partial: 'subscriptions/form',
+                       locals: { subscription: @new_subscription || @event.subscriptions.build } %>
+          </div>
         </div>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>

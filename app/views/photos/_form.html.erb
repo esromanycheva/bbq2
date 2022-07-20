@@ -2,7 +2,7 @@
   <%= render partial: 'partials/form_errors', locals: {model: photo} %>
 
   <div class="mb-3">
-    <%= f.label :photo_image, class: "form-label" %>
+    <%= f.label I18n.t('views.photos.photo_image'), class: "form-label" %>
     <%= f.file_field :photo_image, class: "form-control"%>
   </div>
 
