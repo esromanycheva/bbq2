@@ -53,7 +53,7 @@ gem "font-awesome-rails"
 
 gem "letter_opener", group: :development
 gem 'devise-i18n'
-gem "russian"
+gem 'rails-i18n', '~> 7.0.0'
 gem 'aws-sdk-s3'
 gem 'image_processing', '~> 1.2'
 
