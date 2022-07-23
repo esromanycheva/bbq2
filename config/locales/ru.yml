@@ -1,10 +1,29 @@
 ru:
+  layouts:
+    application:
+      profile: 'Профиль'
+      exit: 'Выход'
+      enter: 'Войти'
+      sign_up: 'Зарегистрироваться'
+
   events:
     show:
       i_am_ready: 'Я пойду'
       edit: 'Изменить'
       destroy: 'Удалить'
       destroy_confirm: 'Вы уверены, что хотите удалить событие?'
+    form:
+      save: 'Сохранить'
+    edit:
+      event: 'Редактирование события'
+    index:
+      events: 'События'
+    new:
+      event: 'Новое событие'
+    password_form:
+      access: 'Доступ только по пин-коду'
+      pin_code: 'Пин-код'
+      root: 'На главную'
 
   device:
     log_in: 'Войти'
@@ -13,6 +32,9 @@ ru:
     send_me_password: 'Пришлите мне инструкции по сбросу пароля'
     change_password: 'Изменение пароля'
     change_my_password: 'Изменить пароль'
+    confirm_new_password: 'Подтвердить новый пароль'
+    mailer:
+      confirm_my_account: 'Подтвердить мой аккаунт'
 
   errors:
     messages:
@@ -22,8 +44,37 @@ ru:
         many: 'Сохранение не удалось из-за %{count} ошибок:'
 
   photos:
+    form:
+      upload: 'Загрузить'
+    edit:
+      photo: 'Редактировать фото'
+      show_this_photo: 'Показать эту фотографию'
+      back_to_photo: 'Назад к фотографии'
     photo:
       destroy_confirm: 'Вы действительно хотите удалить фотографию?'
+    index:
+      photos: 'Фотографии'
+      show_this_photo: 'Показать фотографию'
+      new_photo: 'Новое фото'
+    new:
+      photo: 'Новое фотo'
+      back_to_photos: 'Вернуться'
+    show:
+      edit_this_photo: 'Редактировать фотографию'
+      back_to_photos: 'Назад к фотографии'
+      destroy_this_photo: 'Удалить фотографию'
+
+users:
+  form:
+    save: 'Сохранить'
+    back: 'Вернуться'
+  edit:
+    user: 'Редактировать'
+    change_password: 'Сменить пароль'
+  show:
+    change_password: 'Сменить пароль'
+    organized: Организовал
+    not_organized: Пользователь пока не организовал ни одного события
 
   activerecord:
     models:
@@ -91,6 +142,8 @@ ru:
   subscriptions:
     subscription:
       destroy_confirm: 'Вы уверены, что хотите удалить эту подписку?'
+    form:
+      new: Подписаться
 
   event_mailer:
     comment:

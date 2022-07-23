@@ -1,14 +1,14 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Photos</h1>
+<h1><%= t('.photos') %></h1>
 
 <div id="photos">
   <% @photos.each do |photo| %>
     <%= render photo %>
     <p>
-      <%= link_to "Show this photo", photo %>
+      <%= link_to t('.show_this_photo'), photo %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New photo", new_photo_path %>
+<%= link_to t('.new_photo'), new_photo_path %>

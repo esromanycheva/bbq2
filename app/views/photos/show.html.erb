@@ -3,8 +3,8 @@
 <%= render @photo %>
 
 <div>
-  <%= link_to "Edit this photo", edit_photo_path(@photo) %> |
-  <%= link_to "Back to photos", photos_path %>
+  <%= link_to t('.edit_this_photo'), edit_photo_path(@photo) %> |
+  <%= link_to t('.back_to_photos'), photos_path %>
 
-  <%= button_to "Destroy this photo", @photo, data: { turbo_method: :delete } %>
+  <%= button_to t('.destroy_this_photo'), @photo, data: { turbo_method: :delete } %>
 </div>
