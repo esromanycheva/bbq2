@@ -1,7 +1,7 @@
 <div class="event-photo buffer-both">
   <%- if photo&.photo_image %>
     <%= image_tag(photo.photo_image.variant(:thumb), class: "rounded")%>
-    Добавил <%= render partial: 'users/user', object: photo.user %>
+    <%= t('.add') %><%= render partial: 'users/user', object: photo.user %>
     <%- if(current_user_can_edit?(photo)) %>
       <%= button_to '✖',
             photo_path(id: photo.id, event_id: (photo.event.id)),

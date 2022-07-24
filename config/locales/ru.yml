@@ -5,7 +5,11 @@ ru:
       exit: 'Выход'
       enter: 'Войти'
       sign_up: 'Зарегистрироваться'
-
+  home:
+    welcome: 'Welcome, this is the home page'
+  partials:
+    form_errors:
+      form_errors: 'В вашей форме %{count} ошибок'
   events:
     show:
       i_am_ready: 'Я пойду'
@@ -14,10 +18,12 @@ ru:
       destroy_confirm: 'Вы уверены, что хотите удалить событие?'
     form:
       save: 'Сохранить'
+      back: 'Вернуться'
     edit:
       event: 'Редактирование события'
     index:
       events: 'События'
+      new: 'Создать событие'
     new:
       event: 'Новое событие'
     password_form:
@@ -51,6 +57,7 @@ ru:
       show_this_photo: 'Показать эту фотографию'
       back_to_photo: 'Назад к фотографии'
     photo:
+      add: 'Добавил'
       destroy_confirm: 'Вы действительно хотите удалить фотографию?'
     index:
       photos: 'Фотографии'
@@ -63,18 +70,22 @@ ru:
       edit_this_photo: 'Редактировать фотографию'
       back_to_photos: 'Назад к фотографии'
       destroy_this_photo: 'Удалить фотографию'
-
-users:
-  form:
-    save: 'Сохранить'
-    back: 'Вернуться'
-  edit:
-    user: 'Редактировать'
-    change_password: 'Сменить пароль'
-  show:
-    change_password: 'Сменить пароль'
-    organized: Организовал
-    not_organized: Пользователь пока не организовал ни одного события
+  comments:
+    comment:
+      destroy_confirm: 'Вы уверены, что хотите удалить этот комменатрий?'
+    form:
+      send: 'Отправить'
+  users:
+    form:
+      save: 'Сохранить'
+      back: 'Вернуться'
+    edit:
+      user: 'Редактировать'
+      change_password: 'Сменить пароль'
+    show:
+      change_password: 'Сменить пароль'
+      organized: Организовал
+      not_organized: Пользователь пока не организовал ни одного события
 
   activerecord:
     models:
@@ -135,9 +146,6 @@ users:
     name: 'Шашлыки'
     company: 'Хороший программист'
 
-  comments:
-    comment:
-      destroy_confirm: 'Вы уверены, что хотите удалить этот комменатрий?'
 
   subscriptions:
     subscription:
