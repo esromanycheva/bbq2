@@ -1,5 +1,7 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
+@import 'lightbox2/src/css/lightbox';
+
 
 .buffer-top {
   margin-top: 20px;
@@ -17,7 +19,7 @@
 .img-icon, .img-icon-small {
   height: 50px;
   width: 50px;
-  border-radius: 50%; 
+  border-radius: 50%;
 }
 
 .thumbnail {
@@ -38,4 +40,17 @@
 
 .thumbnail-inner {
   padding: 20px 4px 4px;
+}
+
+.d-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.bc-galey {
+  background-color: #FDF5E6;
+}
+
+.icon-success {
+  color: #FFFFFF;
 }

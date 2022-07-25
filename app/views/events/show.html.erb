@@ -32,14 +32,13 @@
 <div class="event">
   <div class="row">
     <div class="col-md-8">
-      <div class="event-photos">
-        <div class="event-photos-gallery">
-          <%= render partial: 'photos/photo', collection: @event.photos.except(@new_photo) %>
-        </div>
-
-        <div class="event-photo-form">
+      <div class="event-photos-gallery d-flex flex-wrap">
+        <%= render partial: 'photos/photo', collection: @event.photos.except(@new_photo) %>
+      </div>
+      <div class="event-photo-form">
+        <% if user_signed_in? %>
           <%= render partial: 'photos/form', locals: {photo: @new_photo || @event.photos.build} %>
-        </div>
+        <% end %>
       </div>
 
       <div class="event-comments buffer-top">

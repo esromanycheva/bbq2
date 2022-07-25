@@ -58,6 +58,7 @@ ru:
       back_to_photo: 'Назад к фотографии'
     photo:
       add: 'Добавил'
+      added: 'Добавил'
       destroy_confirm: 'Вы действительно хотите удалить фотографию?'
     index:
       photos: 'Фотографии'
