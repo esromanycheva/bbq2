@@ -31,7 +31,7 @@ ru:
       pin_code: 'Пин-код'
       root: 'На главную'
 
-  device:
+  devise:
     log_in: 'Войти'
     sign_up: 'Зарегистрироваться'
     forgot: 'Забыли пароль'
@@ -41,6 +41,11 @@ ru:
     confirm_new_password: 'Подтвердить новый пароль'
     mailer:
       confirm_my_account: 'Подтвердить мой аккаунт'
+    passwords:
+      edit:
+        change_password: 'Изменить пароль'
+        minimum_password_length: 'Минимум 6 символов'
+        confirm_new_password: 'Подтвердить новый пароль'
 
   errors:
     messages:
@@ -169,4 +174,7 @@ ru:
       event: 'Событие'
       datetime: 'Состоится'
       owner: 'Организатор'
-
+    photo:
+      title: 'Новая фотография'
+      author: 'Автор'
+      event: 'Событие'
