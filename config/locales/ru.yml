@@ -41,6 +41,12 @@ ru:
     confirm_new_password: 'Подтвердить новый пароль'
     mailer:
       confirm_my_account: 'Подтвердить мой аккаунт'
+      reset_password_instructions:
+        hello: 'Привет'
+        reset_password_text: 'Кто-то запросил ссылку для смены пароля. Вы можете сделать это по ссылке ниже.'
+        change_password: 'Сменить пароль'
+        warning_change_password: 'Если вы этого не запрашивали, проигнорируйте это письмо.'
+        information_change_password: 'Ваш пароль не изменится, пока вы не перейдете по ссылке выше и не создадите новый.'
     passwords:
       edit:
         change_password: 'Изменить пароль'
