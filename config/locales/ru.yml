@@ -34,6 +34,11 @@ ru:
   devise:
     log_in: 'Войти'
     sign_up: 'Зарегистрироваться'
+    characters_minimum: 
+      one: Минимум %{count} символ
+      few: Минимум %{count} символа
+      many: Минимум %{count} символов
+
     forgot: 'Забыли пароль'
     send_me_password: 'Пришлите мне инструкции по сбросу пароля'
     change_password: 'Изменение пароля'

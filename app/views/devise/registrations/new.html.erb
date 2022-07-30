@@ -11,7 +11,7 @@
     <div class="mb-3">
       <%= f.label :password, class: "form-label" %>
       <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <em>(<%= t('devise.characters_minimum', count: @minimum_password_length) %>)</em>
       <% end %><br />
       <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
     </div>
