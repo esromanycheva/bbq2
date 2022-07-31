@@ -1,4 +1,6 @@
 ru:
+  or: 'или'
+  delete_event: Удалить событие
   layouts:
     application:
       profile: 'Профиль'
@@ -12,6 +14,8 @@ ru:
       form_errors: 'В вашей форме %{count} ошибок'
   events:
     show:
+      invite: Зовет
+      will_go: Пойдут
       i_am_ready: 'Я пойду'
       edit: 'Изменить'
       destroy: 'Удалить'
