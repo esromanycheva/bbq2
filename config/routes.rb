@@ -9,7 +9,6 @@ Rails.application.routes.draw do
     get "users", to: "devise/sessions#new"
   end
 
-  resources :users
   root "events#index"
 
   resources :events do
