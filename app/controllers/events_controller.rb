@@ -31,27 +31,19 @@ class EventsController < ApplicationController
   def create
     @event = current_user.events.build(event_params)
 
-    respond_to do |format|
-      if @event.save
-        format.html { redirect_to @event, notice: I18n.t('controllers.events.created') }
-        format.json { render :show, status: :created, location: @event }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+    if @event.save
+      redirect_to @event, notice: I18n.t('controllers.events.created')
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /events/1 or /events/1.json
   def update
-    respond_to do |format|
-      if @event.update(event_params)
-        format.html { redirect_to @event, notice: I18n.t('controllers.events.updated') }
-        format.json { render :show, status: :ok, location: @event }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+    if @event.update(event_params)
+      redirect_to @event, notice: I18n.t('controllers.events.updated')
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -59,10 +51,7 @@ class EventsController < ApplicationController
   def destroy
     @event.destroy
 
-    respond_to do |format|
-      format.html { redirect_to events_url, status: :see_other,  notice: I18n.t('controllers.events.destroyed') }
-      format.json { head :no_content }
-    end
+    redirect_to events_url, status: :see_other,  notice: I18n.t('controllers.events.destroyed')
   end
 
   private
