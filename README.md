@@ -1,24 +1,53 @@
-# README
+#### BBQ 
+Ruby on Rails приложение для создания событий, приглашения друзей на мероприятие, для общения внутри мероприятия, для отправки информации о мероприятии, размещения фотографий.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**Запуск программы**
 
-Things you may want to cover:
+*Скопируйте репозиторий:*
+```
+git clone git@github.com:esromanycheva/bbq2.git
+```
 
-* Ruby version
+*Войдите в папку с программой:*
+```
+cd ./bbq2
+```
 
-* System dependencies
+*Установите библиотеки:*
+```
+bundle install
+```
 
-* Configuration
+*Выполните команду:* 
+```
+EDITOR=vim rails credentials:edit
+```
+*и в файле credentials.yml заполните все ключи из credentials.yml.sample*
 
-* Database creation
+ 
+*Запустите миграции:*
+```
+rails db:migrate
+```
 
-* Database initialization
+*Соберите js файлы:*
+```
+yarn install
+```
 
-* How to run the test suite
+*Запустите сервер:*
+```
+rails s
+```
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#### Реализованный функционал:
+- Интернационализация (ru, en), i18n
+- Мероприятия: создание, редактирование, удаление
+- Отображение места мероприятия на Яндекс карте
+- Пин-код для события
+- Комментарии для события
+- Подписки на событие
+- Отправка почты (gmail)
+- Загрузка фотографий (mightmagic, lightbox2)
+- Хранение фотографий в Yandex Cloud
+- Аутентификация (Devise)
