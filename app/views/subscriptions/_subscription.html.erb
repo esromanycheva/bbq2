@@ -1,10 +1,20 @@
-<span class="subscription">
-  <% if subscription.user.present? %>
-    <%= render partial: 'users/user', object: subscription.user %>
-  <% else %>
-    <em><%= subscription.user_name %></em>
-  <% end %>
-  <% if current_user_can_edit?(subscription) %>
-    <%= link_to((fa_icon 'times'), event_subscription_path(subscription.event, subscription), data: {turbo_method: :delete, turbo_confirm: t('.destroy_confirm')}) %>
-  <% end %>
-</span>
+<div class="event-subscriptions">
+  <h4><%= t('.will_go') %>:</h4>
+  <div>
+    <p>
+      <span class="subscription">
+        <% if subscription.user.present? %>
+          <%= render partial: 'users/user', object: subscription.user %>
+        <% else %>
+          <em><%= subscription.user_name %></em>
+        <% end %>
+        <% if current_user_can_edit?(subscription) %>
+          <%= link_to((fa_icon 'times'), event_subscription_path(subscription.event, subscription), data: {turbo_method: :delete, turbo_confirm: t('.destroy_confirm')}) %>
+        <% end %>
+      </span>
+    </p>
+  </div>
+</div>
+
+
+
