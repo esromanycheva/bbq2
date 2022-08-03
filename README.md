@@ -34,7 +34,10 @@ rails db:migrate
 ```
 yarn install
 ```
-
+*Установить imagemagick:*
+```
+sudo apt-get install libmagickwand-dev imagemagick
+```
 *Запустите сервер:*
 ```
 rails s
