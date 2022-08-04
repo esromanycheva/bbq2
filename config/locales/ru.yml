@@ -62,6 +62,17 @@ ru:
         minimum_password_length: 'Минимум 6 символов'
         confirm_new_password: 'Подтвердить новый пароль'
 
+    registrations:
+      edit:
+        user: пользователя
+        sign_up: Сохранить
+        back: Назад
+        submit_cancel: Подтвердить удаление
+        current: В настоящее время ожидается подтверждение для
+        leave: оставьте пустым, если не хотите его менять
+        need: нам нужен ваш текущий пароль, чтобы подтвердить ваши изменения
+        destroy_confirm: Вы уверены, что хотите удалить пользователя?
+
   errors:
     messages:
       not_saved:
