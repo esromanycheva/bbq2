@@ -90,15 +90,16 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  
-  config.action_mailer.default_url_options = { :host => 'fast-ocean-90840.herokuapp.com' }
+
+  config.action_mailer.default_url_options = { :host => 'bbq2.ru' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
-    domain: "gmail.com",
-    port: 587,
-    user_name: Rails.application.credentials.dig(:gmail, :user_name),
-    password: Rails.application.credentials.dig(:gmail, :password),
-    authentication: 'plain'
+    :tls => true,
+    address: 'smtp.yandex.ru',
+    port: 465,
+    domain: 'yandex.ru',
+    authentication: 'plain',
+    user_name: Rails.application.credentials.dig(:yandex_mail, :user_mail),
+    password: Rails.application.credentials.dig(:yandex_mail, :password)
   }
 end

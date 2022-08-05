@@ -3,4 +3,5 @@
 <hr/>
 <p><%= t '.author' %>: <strong><%= @photo.user.name %></strong></p>
 <p><%= t '.event' %>: <strong><%= @photo.event.title %></strong></p>
+<h3><%= link_to(@event.title, event_url(@event)) %></h3>
 
