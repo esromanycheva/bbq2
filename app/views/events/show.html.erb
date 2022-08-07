@@ -13,11 +13,14 @@
 
         <div class="position-absolute bottom-0 end-5">
         <div class="d-flex flex-row justify-content-start align-items-center my-3">
-          <% if current_user_can_edit?(@event) %>
+          <% if policy(@event).edit? %>
             <%= link_to t('.edit'), edit_event_path(@event), class: 'btn btn-primary me-3' %>
+          <% end %>
+
+          <% if policy(@event).destroy? %>
             <%= button_to t('.destroy'), event_path(@event), method: :delete,
-            form: { data: { turbo_confirm: t('.destroy_confirm') } }, title: t('delete_event'),
-            class: 'btn btn-danger' %>
+              form: { data: { turbo_confirm: t('.destroy_confirm') } }, title: t('delete_event'),
+              class: 'btn btn-danger' %>
           <% end %>
         </div>
         </div>
