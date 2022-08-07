@@ -2,6 +2,8 @@ class PhotosController < ApplicationController
   before_action :set_event, only: [:create, :destroy]
   before_action :check_photo, only: [:create]
   before_action :set_photo, only: [:destroy]
+  before_action :authorize_photo!
+  after_action :verify_authorized
 
   def create
     @new_photo = @event.photos.build(photo_params)
@@ -55,5 +57,9 @@ class PhotosController < ApplicationController
     all_emails.each do |mail|
       EventMailer.photo(photo, mail).deliver_now
     end
+  end
+
+  def authorize_photo!
+    authorize(@photo || Photo)
   end
 end

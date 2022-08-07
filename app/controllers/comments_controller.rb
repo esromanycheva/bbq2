@@ -1,6 +1,8 @@
 class CommentsController < ApplicationController
   before_action :set_event, only: %i[ create destroy ]
   before_action :set_comment, only: [:destroy]
+  before_action :authorize_comment!
+  after_action :verify_authorized
 
   def create
     @new_comment = @event.comments.build(comment_params)
@@ -48,6 +50,10 @@ class CommentsController < ApplicationController
     all_emails.each do |mail|
       EventMailer.comment(comment, mail).deliver_now
     end
+  end
+
+  def authorize_comment!
+    authorize(@comment || Comment)
   end
 end
 

@@ -38,18 +38,19 @@
       <div class="event-photos-gallery d-flex flex-wrap">
         <%= render partial: 'photos/photo', collection: @event.photos.except(@new_photo) %>
       </div>
-      <div class="event-photo-form">
-        <% if user_signed_in? %>
+      <% if policy(:photo).new? %>
+        <div class="event-photo-form">
           <%= render partial: 'photos/form', locals: {photo: @new_photo || @event.photos.build} %>
-        <% end %>
-      </div>
-
-      <div class="event-comments buffer-top">
-        <%= render partial: 'comments/form', locals: {comment: @new_comment || @event.comments.build} %>
-        <div class="buffer-both">
-          <%= render partial: 'comments/comment', collection: @event.comments.except(@new_comment) %>
         </div>
-      </div>
+      <% end %>
+      <% if policy(:comment).new? %>
+        <div class="event-comments buffer-top">
+          <%= render partial: 'comments/form', locals: {comment: @new_comment || @event.comments.build} %>
+          <div class="buffer-both">
+            <%= render partial: 'comments/comment', collection: @event.comments.except(@new_comment) %>
+          </div>
+        </div>
+      <% end %>
     </div>
 
     <div class="col-md-4">

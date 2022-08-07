@@ -1,4 +1,4 @@
-class EventPolicy < ApplicationPolicy
+class CommentPolicy < ApplicationPolicy
   def create?
     !user.guest?
   end

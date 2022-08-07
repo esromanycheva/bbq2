@@ -1,4 +1,4 @@
-class EventPolicy < ApplicationPolicy
+class PhotoPolicy < ApplicationPolicy
   def create?
     !user.guest?
   end
