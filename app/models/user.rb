@@ -17,6 +17,14 @@ class User < ApplicationRecord
     attachable.variant :thumb, resize_to_limit: [200, 200]
   end
 
+  def guest?
+    false
+  end
+
+  def author?(obj)
+    obj.user == self
+  end
+
   private
 
   def set_name
@@ -26,5 +34,4 @@ class User < ApplicationRecord
   def link_subscriptions
     Subscription.where(user_id: nil, user_email: self.email).update_all(user_id: self.id)
   end
-
 end
