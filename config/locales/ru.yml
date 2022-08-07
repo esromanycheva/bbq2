@@ -1,4 +1,7 @@
 ru:
+  global:
+    flash:
+      not_authorized: Вы не авторизованы для выполнения этого действия
   or: 'или'
   delete_event: Удалить событие
   layouts:

@@ -1,10 +1,8 @@
 class EventsController < ApplicationController
-  before_action :authenticate_user!, except: [:show, :index]
 
-  before_action :set_event, only: [:show]
-  before_action :set_current_user_event, only: [:edit, :update, :destroy]
-
+  before_action :authorize_event!
   before_action :password_guard!, only: [:show]
+  after_action :verify_authorized, only: %i[show edit update destroy]
 
   # GET /events or /events.json
   def index
@@ -72,15 +70,14 @@ class EventsController < ApplicationController
     end
   end
 
-  def set_current_user_event
-    @event = current_user.events.find(params[:id])
-  end
 
-  def set_event
-    @event = Event.find(params[:id])
-  end
 
   def event_params
     params.require(:event).permit(:title, :address, :datetime, :description, :pincode)
+  end
+
+  def authorize_event!
+    @event = Event.find(params[:id])
+    authorize @event
   end
 end

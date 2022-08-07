@@ -1,5 +1,6 @@
 class Event < ApplicationRecord
-
+  include Authorship
+  
   belongs_to :user
 
   has_many :comments, dependent: :destroy
