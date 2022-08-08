@@ -28,6 +28,11 @@ gem "devise", github: "ghiculescu/devise", branch: "error-code-422"
 gem "responders", github: "heartcombo/responders"
 gem "pundit", "~> 2.2"
 
+gem "omniauth-rails_csrf_protection"
+gem "omniauth"
+gem 'omniauth-vkontakte'
+gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
+
 group :development do
   gem "web-console"
   gem 'capistrano'
