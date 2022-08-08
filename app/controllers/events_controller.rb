@@ -1,5 +1,4 @@
 class EventsController < ApplicationController
-
   before_action :authorize_event!, only: %i[show edit update destroy]
   before_action :password_guard!, only: [:show]
   after_action :verify_authorized, only: %i[show edit update destroy]
@@ -69,8 +68,6 @@ class EventsController < ApplicationController
       render 'password_form'
     end
   end
-
-
 
   def event_params
     params.require(:event).permit(:title, :address, :datetime, :description, :pincode)
