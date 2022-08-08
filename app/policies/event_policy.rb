@@ -1,4 +1,9 @@
 class EventPolicy < ApplicationPolicy
+  def initialize(user, record, access_token_context = nil)
+    @access_token_context = access_token_context
+    super(user, record)
+  end
+
   def create?
     !user.guest?
   end
@@ -20,6 +25,6 @@ class EventPolicy < ApplicationPolicy
   end
 
   def show?
-    true
+    @access_token_context.valid_token?
   end
 end

@@ -21,7 +21,6 @@ class User < ApplicationRecord
   end
 
   def self.find_for_vkontakte_oauth(access_token)
-    binding.pry
     email = access_token.info.email
 
     user = where(email: email).first
