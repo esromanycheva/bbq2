@@ -20,6 +20,18 @@ class User < ApplicationRecord
     attachable.variant :thumb, resize_to_limit: [200, 200]
   end
 
+  def self.find_for_github_oauth(access_token)
+    data = access_token.info
+    user = User.where(email: data['email']).first
+    unless user
+      user = User.create(
+        email: data['email'],
+        password: Devise.friendly_token[0,20]
+      )
+    end
+    user
+  end
+
   def self.find_for_vkontakte_oauth(access_token)
     email = access_token.info.email
 
