@@ -8,8 +8,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def handle_auth(kind)
-    binding.pry
-    # @user = User.from_omniauth(request.env["omniauth.auth"])
     @user = User.send(:"find_for_#{kind.downcased}_oauth", request.env["omniauth.auth"])
     if @user.persisted?
       flash[:notice] = I18n.t "devise.omniauth_callbacks.success", kind: kind
