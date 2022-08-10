@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :authorize_event!, only: %i[edit update destroy]
+  before_action :set_event, only: %i[show edit update destroy]
   after_action :verify_authorized, only: %i[show edit update destroy]
 
   # GET /events or /events.json
@@ -9,7 +9,12 @@ class EventsController < ApplicationController
 
   # GET /events/1 or /events/1.json
   def show
-    authorize access_token_context
+    pincode = params[:pincode] || cookies.permanent["events_#{@event.id}_pincode"]
+
+    event_context = EventContext.new(event: @event, pincode: pincode)
+    authorize event_context, policy_class: EventPolicy
+
+    cookies.permanent["events_#{@event.id}_pincode"] = pincode
 
     @new_comment = @event.comments.build(params[:comment])
     @new_subscription = @event.subscriptions.build(params[:subscription])
@@ -25,6 +30,7 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
+    authorize @event
   end
 
   # POST /events or /events.json
@@ -40,6 +46,7 @@ class EventsController < ApplicationController
 
   # PATCH/PUT /events/1 or /events/1.json
   def update
+    authorize @event
     if @event.update(event_params)
       redirect_to @event, notice: I18n.t('controllers.events.updated')
     else
@@ -49,6 +56,7 @@ class EventsController < ApplicationController
 
   # DELETE /events/1 or /events/1.json
   def destroy
+    authorize @event
     @event.destroy
 
     redirect_to events_url, status: :see_other,  notice: I18n.t('controllers.events.destroyed')
@@ -65,16 +73,7 @@ class EventsController < ApplicationController
     render 'password_form'
   end
 
-  def access_token_context
-    @access_token_context ||=
-      AccessTokenContext.new(current_user, event, params[:pincode])
-  end
-
-  def authorize_event!
-    authorize event
-  end
-
-  def event
-    @event ||= Event.find(params[:id])
+  def set_event
+    @event = Event.find(params[:id])
   end
 end

@@ -1,9 +1,4 @@
 class EventPolicy < ApplicationPolicy
-  def initialize(user, record, access_token_context = nil)
-    @access_token_context = access_token_context
-    super(user, record)
-  end
-
   def create?
     !user.guest?
   end
@@ -25,6 +20,14 @@ class EventPolicy < ApplicationPolicy
   end
 
   def show?
-    @access_token_context.valid_token?
+    valid_token?(record)
+  end
+
+  private
+
+  def valid_token?(event_context)
+    return true if event_context.event.pincode.blank?
+    return true if user && user == event_context.event.user
+    event_context.pincode.present? && event_context.event.pincode == event_context.pincode
   end
 end
